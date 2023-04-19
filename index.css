@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  letter-spacing: 2px;
+  background-color: teal;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.canvas {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.canvas .todo {
+  margin: 0 5%;
+  width: 100vh;
+  height: 400px;
+  max-height: 400px;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+.canvas .todo .myInput {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.canvas .todo .myInput input[type=text] {
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  border: 2px #00cc00 solid;
+}
+.canvas .todo .myInput button {
+  font-size: 1.2rem;
+  border-radius: 10px;
+  width: 150px;
+  cursor: pointer;
+  background-color: #00cc00;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+.canvas .todo .myList {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.canvas .todo .myList .listItem {
+  font-size: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 0.05fr;
+  align-items: center;
+}/*# sourceMappingURL=index.css.map */
