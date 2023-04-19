@@ -12,13 +12,16 @@ addBtn.addEventListener("click", function(){
         alert("Please Input a value on the Textbox");
     }
     else{
-        myList.innerHTML += 
+        const myItem = document.createElement('div');
+        myItem.classList.add("listItem");
+        myItem.classList.add("animate__bounceIn");
+        myItem.innerHTML = 
         `
-        <div class="listItem">
             <p>${addTxt.value}</p>
-            <input type="checkbox" name="" id="">
-        </div>
-        `
+            <button>Remove</button>
+        `;
+
+        myList.appendChild(myItem);
         storedList.push(addTxt.value);
         localStorage.setItem("myList", JSON.stringify(storedList));
         console.log(storedList);
@@ -26,23 +29,26 @@ addBtn.addEventListener("click", function(){
     }
 })
 
-// Load tasks from local storage on page load
 window.addEventListener('load', function() {
 	let storedList = [];
 
-	// Check if tasks exist in local storage
 	if (localStorage.getItem('myList')) {
 		storedList = JSON.parse(localStorage.getItem('myList'));
 	}
 
-	// Add tasks to task list
-	for (let i = 0; i < storedList.length; i++) {
-		myList.innerHTML += 
-        `
-        <div class="listItem">
-            <p>${storedList[i]}</p>
-            <input type="checkbox" name="" id="">
-        </div>
-        `
-	}
+    if(storedList.length == 0){
+        myList.innerHTML = `<h3>Add new Task</h3>`
+    }
+    else{
+        for (let i = 0; i < storedList.length; i++) {
+            const myItem = document.createElement('div');
+            myItem.classList.add("listItem");
+            myItem.innerHTML = 
+            `
+                <p>${storedList[i]}</p>
+                <button>Remove</button>
+            `;
+            myList.appendChild(myItem);
+        }
+    }
 });
